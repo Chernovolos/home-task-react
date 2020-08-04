@@ -1,8 +1,12 @@
 import React from 'react';
+import '../src/assets/scss/index.scss';
+import MainPage from "./components/MainPage/MainPage";
 
 function App() {
   return (
-    <div className="App"/>
+      <div className="App">
+        <MainPage/>
+      </div>
   );
 }
 
