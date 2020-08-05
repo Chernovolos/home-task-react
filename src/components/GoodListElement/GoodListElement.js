@@ -1,27 +1,30 @@
 import React from "react";
-import { Col, ListGroup } from "react-bootstrap";
+import { Button, Col, ListGroup } from "react-bootstrap";
 
-class GoodListElement extends React.Component {
+export default class GoodListElement extends React.Component {
+
+    onDelete = () => {
+        this.props.onDelete(this.props.good.id);
+    };
 
     render() {
-        const { title, weight, description } = this.props.goods;
+        const { title, weight, description } = this.props.good;
 
         return (
-            <Col sm={5} className="mb-5 font-weight-light">
+            <Col sm={6} className="mb-3 font-weight-light">
                 <ListGroup>
-                    <ListGroup.Item variant="dark">
+                    <ListGroup.Item variant="dark" className="font-weight-bolder text-uppercase">
                         Title: {title}
                     </ListGroup.Item>
-                    <ListGroup.Item variant="dark">
+                    <ListGroup.Item variant="dark" className="font-weight-bolder">
                         Weight: {weight}
                     </ListGroup.Item>
-                    <ListGroup.Item variant="dark">
+                    <ListGroup.Item variant="dark" className="font-weight-bolder">
                         Descriptions: {description}
                     </ListGroup.Item>
                 </ListGroup>
+                <Button onClick={this.onDelete} variant={"danger"} className="text-uppercase mt-3">Delete</Button>
             </Col>
         );
     }
 }
-
-export default GoodListElement;
