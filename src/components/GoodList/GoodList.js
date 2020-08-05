@@ -5,6 +5,9 @@ import PropTypes from "prop-types";
 
 export default class GoodList extends React.Component {
 
+    onDelete = (id) => {
+      this.props.onDelete(id);
+    };
     render() {
         const { goods } = this.props;
 
@@ -16,7 +19,8 @@ export default class GoodList extends React.Component {
                             return (
                                 <GoodListElement
                                     key={good.id}
-                                    goods={good}
+                                    good={good}
+                                    onDelete={this.onDelete}
                                 />
                             )
                         })
